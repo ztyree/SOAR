@@ -1,0 +1,8 @@
+sp {initialize*state*directions
+   (state <ss> ^type state)
+-->
+   (<ss> ^directions <n> <s> <e> <w>)
+   (<n> ^value north ^opposite south)
+   (<s> ^value south ^opposite north)
+   (<e> ^value east ^opposite west)
+   (<w> ^value west ^opposite east)}

@@ -1,0 +1,35 @@
+# eater1*propose*moveToFood*normalFood
+# If there is normal or bonus food in a neighboring cell,
+# then propose move(direction).
+
+sp {eater1*propose*moveToFood
+   (state <s> ^io.input-link.my-location.<dir>.content
+          << normalfood bonusfood >>)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name moveToFood
+        ^direction <dir>)}
+
+# eater1*apply*moveToFood
+# If moveToFood is selected,
+# then generate output command to move in the specified direction.
+
+sp {eater1*apply*moveToFood
+   (state <s> ^io.output-link <out>
+              ^operator (^name moveToFood
+                         ^direction <dir>))
+-->
+   (<out> ^move.direction <dir>)}
+
+# eater1*apply*moveToFood*removeMove
+# If moveToFood is selected,
+#   and there is a completed move command on the output-link,
+# then remove old move record from WM.
+
+sp {eater1*apply*moveToFood*removeMove
+   (state <s> ^io.output-link <out>
+              ^operator.name moveToFood)
+   (<out> ^move <move>)
+   (<move> ^status complete)
+-->
+   (<out> ^move <move> -)}

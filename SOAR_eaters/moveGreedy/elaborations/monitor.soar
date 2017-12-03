@@ -1,0 +1,9 @@
+# monitor*moveGreedy
+# output debugging info
+
+sp {monitor*moveGreedy
+   (state <s> ^operator <o>)
+   (<o> ^name moveGreedy
+        ^direction <dir>)
+-->
+   (write |Direction: | <dir>)}

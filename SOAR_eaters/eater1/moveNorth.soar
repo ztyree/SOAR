@@ -1,0 +1,35 @@
+# propose*moveNorth
+# If eater1 exists,
+# then propose moveNorth operator.
+
+sp {eater1*propose*moveNorth
+   (state <s> ^name eater1 ^io.input-link.eater <e>)
+   (<e> ^x <x> ^y <y>)
+-->
+   (<s> ^operator <op> + =)
+   (<op> ^name moveNorth)
+}
+
+# apply*moveNorth
+# If moveNorth is selected,
+# then generate output command to move north.
+
+sp {apply*moveNorth
+   (state <s> ^operator.name moveNorth
+              ^io.output-link <out>)
+-->
+   (<out> ^move.direction north)
+}
+
+# apply*moveNorth*removeMove:
+# If moveNorth selected,
+#   and there is a completed move command on output-link,
+# then remove that command.
+
+sp {apply*moveNorth*removeMove
+   (state <s> ^operator.name moveNorth
+              ^io.output-link.move <out>)
+   (<out> ^move <move>)
+   (<move> ^status complete)
+-->
+   (<out> ^move <move> -)}

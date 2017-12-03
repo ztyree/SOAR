@@ -1,0 +1,115 @@
+# eater1*propose*jump
+# If the content of a cell two steps away is not a wall,
+# then propose jump w/ cell's contents.
+
+sp {eater1*propose*jump
+   (state <s> ^name eater1
+              ^io.input-link.my-location.<dir>.<dir>.content
+              { <content> <> wall})
+-->
+   (write (crlf) | Propose jump | <dir>)
+   (<s> ^operator <o> + =)
+   (<o> ^name jump
+        ^actions.jump.direction <dir>
+        ^content <content>)}
+
+# eater1*propose*moveGreedy*normalFood
+# If there is not a wall in a neighboring cell,
+# then propose move(direction) and record conent.
+
+sp {eater1*propose*moveGreedy
+   (state <s> ^name eater1
+              ^io.input-link.my-location.<dir>.content
+          { <> wall <content> })
+-->
+   (write (crlf) | Propose move | <dir>)
+   (<s> ^operator <o> + =)
+   (<o> ^name moveGreedy
+        ^actions.move.direction <dir>
+        ^content <content>)}
+                 
+# eater1*select*bonusfoodBetter
+
+sp {eater1*select*bonusfoodBetter
+   (state <s> ^operator <o1> +
+              ^operator <o2> +)
+   (<o1> ^name { << jump moveGreedy >> <name> }
+         ^content bonusfood)
+   (<o2> ^name <name>
+         ^content <> bonusfood)
+-->
+   (<s> ^operator <o1> > <o2>)}
+
+# eater1*select*normalfoodBetter
+
+sp {eater1*select*bonusfoodBetter
+   (state <s> ^operator <o1> +
+              ^operator <o2> +)
+   (<o1> ^name { << jump moveGreedy >> <name> }
+         ^content normalfood)
+   (<o2> ^name <name>
+         -^content << bonusfood normalfood >>)
+-->
+   (<s> ^operator <o1> > <o2>)}
+
+# eater1*select*bonusBetterMoveEmpty
+
+sp {eater1*select*bonusBetterMoveEmpty
+   (state <s> ^operator <o1> +
+              ^operator <o2> +)
+   (<o1> ^name jump
+         ^content bonusfood)
+   (<o2> ^name moveGreedy
+         ^content empty)
+-->
+   (<s> ^operator <o1> > <o2>)}
+
+# eater1*apply*moveGreedy*addMoveRecord
+# If the mvoe operator for a direction is selected,
+# then create an augmentation called lastDirection w/ that direction.
+
+sp {eater1*apply*moveGreedy*addMoveRecord
+   (state <s> ^operator <o>)
+   (<o> ^name moveGreedy
+        ^direction <direction>)
+-->
+   (<s> ^lastDirection <direction>)}
+
+# eater1*apply*moveGreedy*deleteMoveRecord
+# If move operatored selected,
+#   and lastDirection != moveGreedy.direction,
+# then delete lastDirection.
+
+sp {eater1*apply*moveGreedy*deleteMoveRecord
+   (state <s> ^operator <o>
+              ^lastDirection <dir>)
+   (<o> ^direction <> <dir>
+        ^name moveGreedy)
+-->
+   (<s> ^lastDirection <dir> -)}
+
+# eater1*select*move*reject*backward
+# If there is a proposed operator to move in the opposite direction of lastDirection,
+# then reject that operator.
+
+sp {eater1*select*move*reject*backward
+   (state <s> ^operator <o> +
+              ^directions.<dir> <d>
+              ^lastDirection <lDir>)
+   (<d> ^value <lDir>
+        ^opposite <oDir>)
+   (<o> ^name moveGreedy
+        ^direction <oDir>)
+-->
+   (<s> ^operator <o> -)}
+
+# eater1*select*compare*bestValue
+
+sp {select*compare*bestValue
+   (state <s> ^operator <o1> +
+              ^operator <o2> +)
+   (<o1> ^value <v1>)
+   (<o2> ^value <v1>)
+-->
+   (<s> ^operator <o1> > <o2>)}
+   

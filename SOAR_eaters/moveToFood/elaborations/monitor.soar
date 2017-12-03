@@ -1,0 +1,9 @@
+# monitor*moveToFood
+# output debugging info
+
+sp {monitor*moveToFood
+   (state <s> ^operator <o>)
+   (<o> ^name moveToFood
+        ^direction <dir>)
+-->
+   (write |Direction: | <dir>)}

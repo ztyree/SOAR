@@ -1,0 +1,3 @@
+pushd moveToFood
+source moveToFood_source.soar
+popd

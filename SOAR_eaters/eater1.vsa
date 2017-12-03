@@ -1,0 +1,13 @@
+VERSION 4
+\eater1\eater1.dm
+0	ROOT eater1 eater1 1
+1	0	FOPERATOR _firstload _firstload.soar 2
+2	0	FOLDER all all 3
+3	0	FOLDER elaborations elaborations 4
+4	3	FOPERATOR _all _all.soar 5
+5	3	FOPERATOR top-state top-state.soar 6
+6	0	OPERATOR initialize-eater1 initialize-eater1.soar 7
+7	0	OPERATOR moveEast moveEast.soar 9
+8	0	OPERATOR moveNorth moveNorth.soar 8
+9	0	OPERATOR moveToFood moveToFood.soar 10
+END

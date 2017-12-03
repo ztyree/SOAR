@@ -1,0 +1,3 @@
+pushd moveGreedy
+source moveGreedy_source.soar
+popd
