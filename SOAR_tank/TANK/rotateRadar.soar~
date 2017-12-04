@@ -1,0 +1,12 @@
+# If forward is blocked,
+# then rotate 
+#   and turn on radar w/ power 13.
+
+sp {propose*rotateRadar*ifBlocked
+   (state <s> ^io.input-link.blocked.forward yes)
+-->
+   (<s> ^operator <o> +)
+   (<o> ^name rotateRadar
+        ^actions.rotate.direction right
+        ^actions.radar.switch on
+        ^actions.radar-power.setting 13)}

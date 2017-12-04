@@ -1,0 +1,13 @@
+sp {propose*initialize*TANK
+   (state <s> ^superstate nil
+             -^name)
+-->
+   (<s> ^operator <o> + >)
+   (<o> ^name initializeTANK)}
+
+sp {apply*initialize*TANK
+   (state <s> ^operator <o>)
+   (<o> ^name initializeTANK)
+-->
+   (<s> ^name TANK)}
+              

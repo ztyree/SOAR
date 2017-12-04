@@ -1,0 +1,17 @@
+
+
+
+# If radar is on
+#   and there are no objects visible,
+# then turn off the radar.
+
+sp {propose*radarOff*nothingVisible
+   (state <s> ^io.input-link <il>)
+   (<il> ^radar-status on
+         ^radar-setting <> 0
+         ^radar <rad>)
+   -(<rad> ^<< energy health missiles obstacle tank >> <x>)
+-->
+   (<s> ^operator <o> + >)
+   (<o> ^name radarOff
+        ^actions.radar.switch off)}

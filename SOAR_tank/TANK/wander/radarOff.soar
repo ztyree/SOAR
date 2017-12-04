@@ -1,0 +1,27 @@
+# If radar is on
+#   and there are no objects visible,
+# then turn off the radar.
+
+sp {wander*propose*radarOff*nothingVisible
+   (state <s> ^name wander
+              ^io.input-link <il>)
+   (<il> ^radar-status on
+         ^radar-setting <> 0
+         ^radar <rad>)
+   -(<rad> ^<< energy health missiles tank >> <x>)
+-->
+   (<s> ^operator <o> + >)
+   (<o> ^name radarOff
+        ^actions.radar.switch off)}
+
+# If radarOff and moveForward are select,
+# then prefer radarOff.
+
+sp {wander*select*radarOff>moveForward
+   (state <s> ^name wander
+              ^operator <o1> +
+              ^operator <o2> +)
+   (<o1> ^name radarOff)
+   (<o2> ^name moveForward)
+-->
+   (<s> ^operator <o1> + >)}

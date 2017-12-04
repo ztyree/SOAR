@@ -1,0 +1,14 @@
+# If there is no tank detected on radar,
+#   and sound is silent,
+#   and there is no incoming,
+# then propose wander.
+
+sp {propose*wander
+   (state <s> ^name TANK
+              ^io.input-link <il>)
+   (<il> -^radar.tank
+          ^sound silent
+         -^incoming.<dir> yes)
+-->
+   (<s> ^operator <o> +)
+   (<o> ^name wander)}

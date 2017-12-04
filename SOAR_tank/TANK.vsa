@@ -1,0 +1,17 @@
+VERSION 4
+\TANK\TANK.dm
+0	ROOT TANK TANK 1
+1	0	FOPERATOR _firstload _firstload.soar 2
+2	0	FOLDER all all 3
+3	2	FOPERATOR output output.soar 4
+4	0	FOLDER elaborations elaborations 5
+5	4	FOPERATOR _all _all.soar 6
+6	4	FOPERATOR top-state top-state.soar 7
+7	0	OPERATOR actions actions.soar 8
+8	0	OPERATOR initializeTANK initializeTANK.soar 9
+9	0	HLOPERATOR wander wander.soar wander 64 10
+10	9	FOPERATOR elaborations elaborations.soar 11
+11	9	OPERATOR moveForward moveForward.soar 12
+12	9	OPERATOR radarOff radarOff.soar 13
+13	9	OPERATOR rotateRadar rotateRadar.soar 14
+END
