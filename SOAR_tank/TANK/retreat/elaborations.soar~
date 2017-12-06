@@ -1,0 +1,31 @@
+# If sound detected record sound direction.
+
+sp {retreat*elaborate*sound*direction
+   (state <s> ^name retreat
+              ^io.input-link.sound { <> silent <dir> })
+-->
+   (<s> ^direction <dir>)}
+
+# If radar contact w/ tank, record forward.
+
+sp {retreat*elaborate*radar*front
+   (state <s> ^name retreat
+              ^io.input-link.radar.tank)
+-->
+   (<s> ^direction forward)}
+
+# If incoming record direction.
+
+sp {retreat*elaborate*incoming*direction
+   (state <s> ^name retreat
+              ^io.input-link.incoming.<dir> yes)
+-->
+   (<s> ^direction <dir>)}
+
+# If radar contact w/ tank -center, record direction to avoid.
+
+sp {retreat*elaborate*radar*direction
+   (state <s> ^name retreat
+              ^io.input-link.radar.tank.position { <> center <dir> })
+-->
+   (<s> ^avoidDirection <dir>)}

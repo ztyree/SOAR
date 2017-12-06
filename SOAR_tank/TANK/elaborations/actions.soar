@@ -1,8 +1,12 @@
 sp {apply*operator*createActionCommand
-   (state <s> ^operator.actions.<att> <value>
+   (state <s> ^operator <o>
               ^io.output-link <out>)
+   (<o> ^actions <act>)
+   (<act> ^<att> <val>)
+   (<val> ^<att2> <val2>)
 -->
-   (<out> ^<att> <value>)}
+   (<out> ^<att> <val3>)
+   (<val3> ^<att2> <val2>)}
 
 sp {apply*operator*removeActionCommand
    (state <s> ^operator.actions

@@ -5,8 +5,19 @@ popd
 pushd elaborations
 source elaborations_source.soar
 popd
-source actions.soar
+source attack.soar
+pushd attack
+source attack_source.soar
+popd
+source chase.soar
+pushd chase
+source chase_source.soar
+popd
 source initializeTANK.soar
+source retreat.soar
+pushd retreat
+source retreat_source.soar
+popd
 source wander.soar
 pushd wander
 source wander_source.soar

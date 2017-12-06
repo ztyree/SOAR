@@ -1,0 +1,16 @@
+# propose*move
+# If the state is named chase,
+#   and the sound is coming from the forward position,
+# then propose moveForward.
+
+sp {chase*propose*moveForward
+   (state <s> ^name chase
+              ^soundDirection forward
+              ^io.input-link.blocked.forward no)
+-->
+   (<s> ^operator <o> +)
+   (<o> ^name moveForward
+        ^actions.move.direction forward)}
+
+
+   

@@ -1,0 +1,18 @@
+# retreat*propose*sidestep
+# If state is retreat
+#   and direction opposite detected tank is not block
+#   and not direction of another detected tank
+#   and not direction to avoid,
+# then propose sidestep.
+
+sp {retreat*propose*sidestep
+   (state <s> ^name retreat
+              ^direction <dir>
+              ^superstate.sideDirection.<dir> <nDir>
+             -^direction <nDir>
+             -^avoidDirection <nDir>
+              ^io.input-link.blocked.<nDir> no)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name sidestep
+        ^actions.move.direction <nDir>)}

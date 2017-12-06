@@ -1,0 +1,16 @@
+# propose*rotateFire
+# If the state is attack
+#   and there is a tank on radar right next to self,
+# then propose rotate in that direction and fire.
+
+sp {attack*propose*rotateFire
+   (state <s> ^name attack
+              ^io.input-link.radar.tank <tnk>)
+   (<tnk> ^distance 0
+          ^position { <dir> << left right >> })
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name rotateFire
+        ^actions <a>)
+   (<a> ^rotate.direction <dir>
+        ^fire.weapon missile)}

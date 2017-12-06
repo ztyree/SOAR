@@ -1,4 +1,4 @@
-111
+148
 SOAR_ID 0
 SOAR_ID 1
 SOAR_ID 2
@@ -110,12 +110,53 @@ INTEGER_RANGE 107 -2147483648 2147483647
 ENUMERATION 108 1 forward
 ENUMERATION 109 1 forward
 ENUMERATION 110 1 forward
-126
+SOAR_ID 111
+SOAR_ID 112
+SOAR_ID 113
+SOAR_ID 114
+ENUMERATION 115 1 chase
+SOAR_ID 116
+ENUMERATION 117 1 state
+ENUMERATION 118 1 chase
+ENUMERATION 119 1 elaborate
+SOAR_ID 120
+ENUMERATION 121 1 moveForward
+SOAR_ID 122
+ENUMERATION 123 1 rotate
+SOAR_ID 124
+SOAR_ID 125
+SOAR_ID 126
+ENUMERATION 127 1 low
+SOAR_ID 128
+ENUMERATION 129 1 attack
+SOAR_ID 130
+ENUMERATION 131 1 state
+ENUMERATION 132 1 attack
+ENUMERATION 133 1 fire
+SOAR_ID 134
+ENUMERATION 135 1 slide
+SOAR_ID 136
+ENUMERATION 137 1 rotateFire
+SOAR_ID 138
+SOAR_ID 139
+ENUMERATION 140 1 retreat
+SOAR_ID 141
+ENUMERATION 142 1 state
+ENUMERATION 143 1 retreat
+ENUMERATION 144 1 sidestep
+SOAR_ID 145
+ENUMERATION 146 1 wait
+SOAR_ID 147
+166
 0 io 1
 0 name 6
 0 operator 44
 0 operator 46
 0 operator 62
+0 operator 114
+0 operator 128
+0 operator 139
+0 resources 127
 0 superstate 5
 0 top-state 0
 0 type 4
@@ -188,7 +229,10 @@ ENUMERATION 110 1 forward
 56 switch 58
 57 direction 60
 59 setting 61
+62 moveForward 111
 62 name 63
+62 radarOff 112
+62 rotateRadar 113
 64 io 73
 64 name 66
 64 operator 68
@@ -237,3 +281,36 @@ ENUMERATION 110 1 forward
 95 direction 110
 96 direction 109
 97 direction 108
+114 moveForward 125
+114 name 115
+114 rotate 126
+116 name 118
+116 operator 120
+116 operator 122
+116 operator 124
+116 superstate 0
+116 top-state 0
+116 type 117
+120 name 119
+122 name 121
+124 name 123
+128 name 129
+130 name 132
+130 operator 134
+130 operator 136
+130 operator 138
+130 superstate 0
+130 top-state 0
+130 type 131
+134 name 133
+136 name 135
+138 name 137
+139 name 140
+141 name 143
+141 operator 145
+141 operator 147
+141 superstate 0
+141 top-state 0
+141 type 142
+145 name 144
+147 name 146

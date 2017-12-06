@@ -1,0 +1,46 @@
+# propose*retreat
+# If the state is TANK
+#   and the sound sensor is not silent
+#     or there is a tank on radar
+#     or there is incoming
+#       and resources are low,
+# then propose retreat.
+
+sp {propose*retreat*sound
+   (state <s> ^name TANK
+              ^resources low
+              -^io.input-link.sound silent)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name retreat)}
+
+sp {propose*retreat*radar
+   (state <s> ^name TANK
+              ^resources low
+              ^io.input-link.radar.tank)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name retreat)}
+
+sp {propose*retreat*incoming
+   (state <s> ^name TANK
+              ^resources low
+              ^io.input-link.incoming.<dir> yes)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name retreat)}
+
+# If the state is TANK
+#   and the tank has incoming
+#   and cannot sense tank,
+# then propose retreat.
+
+sp {propose*retreat*incoming*notSensed
+   (state <s> ^name TANK
+              ^io.input-link <il>)
+   (<il> ^incoming.<dir> yes
+        -^radar.tank
+         ^sound silent)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name retreat)}

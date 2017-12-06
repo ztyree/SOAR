@@ -1,0 +1,39 @@
+# propose*slide
+# If the state is attack
+#   and there is a tank on radar not in the center
+#   and there is not a tank in the center
+#   and there is an open spot in the direction of the tank,
+# then propose slide operator in that direction.
+
+sp {attack*propose*slide
+   (state <s> ^name attack
+              ^io.input-link <il>)
+   (<il> ^blocked.<dir> no
+         ^radar <r>)
+   (<r> ^tank.position { << left right >> <dir> }
+       -^tank.position center)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name slide
+        ^actions <a>)
+   (<a> ^move.direction <dir>
+        ^fire.weapon missile)}
+
+# propose*moveForward
+# If the state is attack
+#   and there is a tank on radar not in center
+#   and there is not a tank in the center
+#   and the tank is blocked in that direction,
+#   then propose moveForward.
+
+sp {attack*propose*moveForward
+   (state <s> ^name attack
+              ^io.input-link <il>)
+   (<il> ^blocked <dir>
+         ^radar <r>)
+   (<r> ^tank.position { << left right >> <dir> }
+       -^tank.position center)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name moveForward
+        ^actions.move.direction forward)}

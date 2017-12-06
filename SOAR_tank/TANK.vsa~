@@ -6,12 +6,27 @@ VERSION 4
 3	2	FOPERATOR output output.soar 4
 4	0	FOLDER elaborations elaborations 5
 5	4	FOPERATOR _all _all.soar 6
-6	4	FOPERATOR top-state top-state.soar 7
-7	0	OPERATOR actions actions.soar 8
-8	0	OPERATOR initializeTANK initializeTANK.soar 9
-9	0	HLOPERATOR wander wander.soar wander 64 10
-10	9	FOPERATOR elaborations elaborations.soar 11
-11	9	OPERATOR moveForward moveForward.soar 12
-12	9	OPERATOR radarOff radarOff.soar 13
-13	9	OPERATOR rotateRadar rotateRadar.soar 14
+6	4	FOPERATOR actions actions.soar 15
+7	4	FOPERATOR labelState labelState.soar 16
+8	4	FOPERATOR lowResources lowResources.soar 18
+9	4	FOPERATOR top-state top-state.soar 7
+10	0	HLOPERATOR attack attack.soar attack 130 23
+11	10	FOPERATOR elaborations elaborations.soar 24
+12	10	OPERATOR fire fire.soar 25
+13	10	OPERATOR rotateFire rotateFire.soar 27
+14	10	OPERATOR slide slide.soar 26
+15	0	HLOPERATOR chase chase.soar chase 116 17
+16	15	FOPERATOR elaborations elaborations.soar 19
+17	15	OPERATOR moveForward moveForward.soar 21
+18	15	OPERATOR rotate rotate.soar 22
+19	0	OPERATOR initializeTANK initializeTANK.soar 9
+20	0	HLOPERATOR retreat retreat.soar retreat 141 28
+21	20	FOPERATOR elaborations elaborations.soar 29
+22	20	OPERATOR sidestep sidestep.soar 30
+23	20	OPERATOR wait wait.soar 31
+24	0	HLOPERATOR wander wander.soar wander 64 10
+25	24	FOPERATOR elaborations elaborations.soar 11
+26	24	OPERATOR moveForward moveForward.soar 12
+27	24	OPERATOR radarOff radarOff.soar 13
+28	24	OPERATOR rotateRadar rotateRadar.soar 14
 END
