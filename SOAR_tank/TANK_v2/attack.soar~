@@ -1,0 +1,13 @@
+# propose*attack
+# If the state is TANK,
+#   and there is a tank on radar,
+#   and health and energy are not low,
+# then propose attack.
+
+sp {TANK*propose*attack
+   (state <s> ^name TANK
+             -^resources low
+              ^io.input-link.radar.tank)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name attack)}

@@ -1,0 +1,10 @@
+# If forward is not blocked,
+# then move forward.
+
+sp {wander*propose*moveForward*notBlocked
+   (state <s> ^name wander
+              ^io.input-link.blocked.forward no)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name moveForward
+        ^actions.move.direction forward)}

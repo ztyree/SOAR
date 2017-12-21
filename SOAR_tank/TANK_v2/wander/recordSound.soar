@@ -1,0 +1,19 @@
+sp {wander*propose*recordSound
+   (state <s> ^name wander
+              ^io.input-link.sound <> silent)
+-->
+   (<s> ^operator <o> + >, =)
+   (<o> ^name recordSound)}
+
+sp {wander*apply*recordSound
+   (state <s> ^operator.name recordSound
+              ^io.input-link <il>
+              ^superstate <ss>)
+   (<il> ^sound <rel-sound>
+         ^direction <direction>
+         ^clock <clock>)
+   (<ss> ^directionMap.<direction>.<rel-sound> <abs-sound>)
+-->
+   (<ss> ^sound <sd>)
+   (<sd> ^absoluteDirection <abs-sound>
+         ^expireTime (+ <clock> 5))}

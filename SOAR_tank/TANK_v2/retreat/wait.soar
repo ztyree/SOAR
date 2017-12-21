@@ -1,0 +1,11 @@
+# If the state is retreat
+#   and wait is not the current operator,
+# then propose wait
+#   and make worst preference.
+
+sp {retreat*propose*wait
+   (state <s> ^name retreat
+             -^operator.name wait)
+-->
+   (<s> ^operator <o> + <)
+   (<o> ^name wait)}

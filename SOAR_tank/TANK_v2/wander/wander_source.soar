@@ -1,0 +1,4 @@
+source elaborations.soar
+source moveForward.soar
+source recordSound.soar
+source rotateRadar.soar

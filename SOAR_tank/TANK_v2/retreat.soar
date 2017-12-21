@@ -9,9 +9,9 @@
 sp {propose*retreat*sound
    (state <s> ^name TANK
               ^resources low
-              -^io.input-link.sound silent)
+              ^sound)
 -->
-   (<s> ^operator <o> + =)
+   (<s> ^operator <o> + =, >)
    (<o> ^name retreat)}
 
 sp {propose*retreat*radar
@@ -37,10 +37,10 @@ sp {propose*retreat*incoming
 
 sp {propose*retreat*incoming*notSensed
    (state <s> ^name TANK
+             -^sound
               ^io.input-link <il>)
    (<il> ^incoming.<dir> yes
-        -^radar.tank
-         ^sound silent)
+        -^radar.tank)
 -->
    (<s> ^operator <o> + =)
    (<o> ^name retreat)}

@@ -1,0 +1,10 @@
+# Create grid map.
+
+sp {elaborate*sidestep*directions
+   (state <s> ^name TANK)
+-->
+   (<s> ^sideDirection <sd>)
+   (<sd> ^forward right left
+         ^backward right left
+         ^right forward backward
+         ^left forward backward)}

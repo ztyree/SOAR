@@ -1,0 +1,12 @@
+sp {elaborate*directions
+   (state <s> ^superstate nil)
+-->
+   (<s> ^directionMap <dm>)
+   (<dm> ^north <north>
+         ^south <south>
+         ^west <west>
+         ^east <east>)
+   (<north> ^right east ^left west ^backward south ^forward north)
+   (<south> ^right west ^left east ^backward north ^forward south)
+   (<west> ^right north ^left south ^backward east ^forward west)
+   (<east> ^right south ^left north ^backward west ^forward east)}

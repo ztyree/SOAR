@@ -8,13 +8,3 @@ sp {elaborate*sidestep*directions
          ^backward right left
          ^right forward backward
          ^left forward backward)}
-
-# Propose wait for a state-no-change.
-
-sp {topState*propose*wait
-   (state <s> ^attribute state
-              ^choices none
-             -^operator.name wait)
--->
-   (<s> ^operator <o> +)
-   (<o> ^name wait)}

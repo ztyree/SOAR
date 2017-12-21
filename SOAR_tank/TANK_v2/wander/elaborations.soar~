@@ -1,0 +1,11 @@
+sp {wander*elaborate*move*radar-off
+   (state <s> ^name wander
+              ^operator <o>
+              ^io.input-link <il>)
+   (<il> ^radar-status on
+         ^radar <r>)
+   (<o> ^name moveForward 
+        ^actions <a>)
+  -(<r> ^ << energy health missiles tank >> <x>)
+-->
+   (<a> ^radar.switch off)}

@@ -1,0 +1,6 @@
+source _all.soar
+source actions.soar
+source directionMap.soar
+source labelState.soar
+source lowResources.soar
+source top-state.soar

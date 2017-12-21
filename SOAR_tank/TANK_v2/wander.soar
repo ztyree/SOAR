@@ -5,10 +5,9 @@
 
 sp {propose*wander
    (state <s> ^name TANK
+             -^sound
               ^io.input-link <il>)
    (<il> -^radar.tank
-          ^sound silent
          -^incoming.<dir> yes)
 -->
-   (<s> ^operator <o> +)
-   (<o> ^name wander)}
+   (<s> ^operator.name wander)}

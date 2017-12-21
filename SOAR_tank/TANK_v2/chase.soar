@@ -5,3 +5,10 @@
 #   and energy or missiles is not low,
 # then propose chase.
 
+sp {TANK*propose*chase
+   (state <s> ^name TANK
+              ^sound
+             -^io.input-link.radar.tank
+             -^resources low)
+-->
+   (<s> ^operator.name chase)}

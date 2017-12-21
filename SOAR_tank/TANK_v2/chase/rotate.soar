@@ -7,9 +7,20 @@ sp {chase*propose*rotate
    (state <s> ^name chase
               ^soundDirection {<< left right >> <direction>})
 -->
-   (<s> ^operator <o> + =)
+   (<s> ^operator <o> + =, >)
    (<o> ^name rotate
         ^actions.rotate.direction <direction>)}
+
+sp {chase*propose*turn*blocked
+   (state <s> ^name chase
+              ^soundDirection forward
+              ^io.input-link.blocked <b>)
+   (<b> ^forward yes
+        ^ { << left right >> <dir> } no)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name rotate
+        ^actions.rotate.direction <dir>)}
 
 # propose*rotate*backward
 # If the state is chase,
@@ -20,7 +31,7 @@ sp {chase*propose*rotate*backward
    (state <s> ^name chase
               ^soundDirection backward)
 -->
-   (<s> ^operator <o> +)
+   (<s> ^operator <o> + =)
    (<o> ^name rotate
         ^actions.rotate.direction left)}
 

@@ -10,7 +10,7 @@ sp {wander*propose*radarOff*nothingVisible
          ^radar <rad>)
    -(<rad> ^<< energy health missiles tank >> <x>)
 -->
-   (<s> ^operator <o> + >)
+   (<s> ^operator <o> +)
    (<o> ^name radarOff
         ^actions.radar.switch off)}
 

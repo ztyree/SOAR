@@ -1,8 +1,11 @@
 sp {chase*elaborate*state*sound-direction
    (state <s> ^name chase
-              ^io.input-link.sound <sound>)
+              ^superstate <ss>)
+   (<ss> ^sound.absoluteDirection <abs-sound>
+         ^directionMap.<direction>.<rel-sound> <abs-sound>
+         ^io.input-link.direction <direction>)
 -->
-   (<s> ^soundDirection <sound>)}
+   (<s> ^soundDirection <rel-sound>)}
 
 sp {chase*elaborate*radar
    (state <s> ^name chase

@@ -1,0 +1,17 @@
+sp {apply*operator*createActionCommand
+   (state <s> ^operator <o>
+              ^io.output-link <out>)
+   (<o> ^actions <act>)
+   (<act> ^<att> <val>)
+   (<val> ^<att2> <val2>)
+-->
+   (<out> ^<att> <val3>)
+   (<val3> ^<att2> <val2>)}
+
+sp {apply*operator*removeActionCommand
+   (state <s> ^operator.actions
+              ^io.output-link <out>)
+   (<out> ^<att> <value>)
+   (<value> ^status complete)
+-->
+   (<out> ^<att> <value> -)}
