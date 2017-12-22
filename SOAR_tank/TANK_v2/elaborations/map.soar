@@ -1,0 +1,199 @@
+sp {all*map*position
+   (state <s> ^name TANK
+              ^io.input-link <il>
+              ^map.square <cs>)
+   (<il> ^x <x>
+         ^y <y>)
+   (<cs> ^x <x>
+         ^y <y>)
+-->
+   (<s> ^position <cs>)}
+
+sp {map*markObject
+   (state <s> ^name TANK
+              ^map <m>
+              ^io.input-link <io>
+              ^square <cs>
+              ^radar-map.<dir> <dirr>)
+   (<dirr> ^<pos> <pss>
+           ^sx <sx>
+           ^sy <sy>)
+   (<pss> ^x <dx>
+          ^y <dy>)
+   (<io> ^radar.{ <type> << health energy obstacle open missiles tank >> } <ob>
+         ^direction <dir>)
+   (<ob> ^distance <d>
+         ^position <pos>)
+   (<cs> ^x <x>
+         ^y <y>
+ )
+-->
+   (<m> ^<type> <obs>)
+   (<obs> ^x (+ (+ <x> (* <sx> <d>)) <dx>)
+          ^y (+ (+ <y> (* <sy> <d>)) <dy>))}
+
+sp {map*record-object
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^map <m>)
+   (<m> ^{<type> << obstacle health energy open tank missiles >>} <obs>
+        ^square <sq>)
+   (<sq> ^x <x> ^y <y>)
+   (<obs> ^x <x> ^y <y>)
+  -(<sq> ^<type> *yes*)
+-->
+   (<sq> ^<type> *yes*)}
+
+sp {map*clean*missiles
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^map <m>)
+   (<m> ^square <sq>
+        ^open <obs>)
+   (<sq> ^x <x> 
+         ^y <y>
+         ^missiles *yes*)
+ -{(<m> ^missiles <mi>)
+   (<mi> ^x <x>
+         ^y <y>)}
+   (<obs> ^x <x>
+          ^y <y>)
+-->
+   (<sq> ^missiles *yes* -)}
+
+sp {map*clean*tank
+   :o-support
+   (state <s> ^name tanksoar
+              ^map <m>)
+   (<m> ^square <sq>
+        ^open <obs>)
+   (<sq> ^x <x> 
+         ^y <y>
+         ^tank *yes*)
+  -{(<m> ^tank <mi>)
+    (<mi> ^x <x>
+          ^y <y>)}
+   (<obs> ^x <x> 
+          ^y <y>)
+-->
+   (<sq> ^tank *yes* -)}
+
+sp {map*clean*missile*occupied
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^io.input-link <il>
+              ^square <cs>)
+   (<cs> ^missiles *yes*)
+-->
+   (<cs> ^missiles *yes* -)}
+
+sp {map*clean*tank*occupied
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^io.input-link <il>
+              ^square <cs>)
+   (<cs> ^tank *yes*)
+-->
+   (<cs> ^tank *yes* -)}
+
+sp {map*record-open*there
+   :o-support
+   (state <s> ^name tanksoar
+              ^square <sq>)
+   (<sq> -^open *yes*)
+-->
+   (<sq> ^open *yes*)}
+
+sp {map*record-energy*there
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^io.input-link.energyrecharger yes
+              ^square <sq>)
+   (<sq> -^energy *yes*)
+-->
+   (<sq> ^energy *yes*)}
+
+sp {map*record-health*there
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^io.input-link.healthrecharger yes
+              ^square <sq>)
+   (<sq> -^health *yes*)
+-->
+   (<sq> ^health *yes*)}
+
+sp {map*clean*missiles
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^map <m>)
+   (<m> ^square <sq>
+        ^open <obs>)
+   (<sq> ^x <x>
+         ^y <y>
+         ^missiles *yes*)
+  -{(<m> ^missiles <mi>)
+    (<mi> ^x <x>
+          ^y <y>)}
+   (<obs> ^x <x>
+          ^y <y>)
+-->
+   (<sq> ^missiles *yes* -)}
+
+sp {map*clean*tank
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^map <m>)
+   (<m> ^square <sq>
+        ^open <obs>)
+   (<sq> ^x <x>
+         ^y <y>
+         ^tank *yes*)
+  -{(<m> ^tank <mi>)
+    (<mi> ^x <x>
+          ^y <y>)}
+   (<obs> ^x <x>
+          ^y <y>)
+-->
+   (<sq> ^tank *yes* -)}
+
+sp {map*clean*missile*occupied
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^square <cs>)
+   (<cs> ^missiles *yes*)
+-->
+   (<cs> ^missiles *yes* -)}
+
+sp {map*clean*tank*occupied
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^square <cs>)
+   (<cs> ^tank *yes*)
+-->
+   (<cs> ^tank *yes* -)}
+
+sp {map*record-open*current
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^square <sq>)
+   (<sq> -^open *yes*)
+-->
+   (<sq> ^open *yes*)}
+
+sp {map*record-energy*current
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^io.input-link.energyrecharger yes
+              ^square <sq>)
+   (<sq> -^energy *yes*)
+-->
+   (<sq> ^energy *yes*)}
+
+sp {map*record-health*current
+   (state <s> ^name TANK
+              ^operator.name <name>
+              ^io.input-link.healthrecharger yes
+              ^square <sq>)
+   (<sq> -^health *yes*)
+-->
+   (<sq> ^health *yes*)}

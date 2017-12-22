@@ -1,4 +1,4 @@
-259
+261
 SOAR_ID 0
 SOAR_ID 1
 SOAR_ID 2
@@ -258,7 +258,9 @@ ENUMERATION 255 1 no
 SOAR_ID 256
 ENUMERATION 257 1 rotateRadar
 SOAR_ID 258
-277
+SOAR_ID 259
+ENUMERATION 260 1 initializeMap
+279
 0 directionMap 155
 0 io 1
 0 name 6
@@ -269,6 +271,7 @@ SOAR_ID 258
 0 operator 128
 0 operator 139
 0 operator 153
+0 operator 259
 0 resources 127
 0 sideDirection 196
 0 sound 150
@@ -536,3 +539,4 @@ SOAR_ID 258
 226 forward 255
 231 position 232
 258 name 257
+259 name 260

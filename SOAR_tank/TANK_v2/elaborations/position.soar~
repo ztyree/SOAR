@@ -1,0 +1,10 @@
+sp {all*map*position
+   (state <s> ^name TANK
+              ^io.input-link <il>
+              ^map.square <cs>)
+   (<il> ^x <x>
+         ^y <y>)
+   (<cs> ^x <x>
+         ^y <y>)
+-->
+   (<s> ^position <cs>)}

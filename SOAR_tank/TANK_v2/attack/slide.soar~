@@ -29,7 +29,7 @@ sp {attack*propose*slide
 sp {attack*propose*moveForward
    (state <s> ^name attack
               ^io.input-link <il>)
-   (<il> ^blocked <dir>
+   (<il> ^blocked.<dir> yes
          ^radar <r>)
    (<r> ^tank.position { << left right >> <dir> }
        -^tank.position center)

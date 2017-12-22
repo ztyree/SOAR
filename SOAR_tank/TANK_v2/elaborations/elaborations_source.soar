@@ -3,4 +3,6 @@ source actions.soar
 source directionMap.soar
 source labelState.soar
 source lowResources.soar
+source map.soar
+source shields.soar
 source top-state.soar
