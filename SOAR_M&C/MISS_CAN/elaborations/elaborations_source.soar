@@ -1,0 +1,4 @@
+source _all.soar
+source detect.soar
+source lastOperator.soar
+source top-state.soar

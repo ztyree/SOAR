@@ -1,0 +1,40 @@
+sp {MISS_CAN*propose*movePerson11
+   (state <s> ^name MISS_CAN
+              ^<< rightBank leftBank >> <bank>)
+   (<bank> ^{ << cannibals missionaries >> <type> } > 0
+           ^boat yes)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name movePerson11
+        ^bank <bank>
+        ^<type> 1
+        ^boat yes
+        ^types 1)}
+
+sp {MISS_CAN*propose*movePerson21
+   (state <s> ^name MISS_CAN
+              ^<< rightBank leftBank >> <bank>)
+   (<bank> ^{ << cannibals missionaries >> <type> } > 1
+           ^boat yes)
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name movePerson21
+        ^bank <bank>
+        ^<type> 2
+        ^boat yes
+        ^types 1)}
+
+sp {MISS_CAN*propose*movePerson22
+   (state <s> ^name MISS_CAN
+              ^<< rightBank leftBank >> <bank>)
+   (<bank> ^cannibals > 0
+           ^missionaries > 0
+           ^boat yes)
+-->
+   (<s> ^operator <o> + =)
+        ^name movePerson22
+        ^bank <bank>
+        ^missionaries 1
+        ^cannibals 1
+        ^boat yes
+        ^types 2)}

@@ -1,0 +1,34 @@
+sp {monitor*movePerson
+   (state <s> ^operator <o>)
+   (<o> ^name movePerson
+        ^{ << cannibals missionaries >> <type> } <number>)
+-->
+   (write | Move | <number> | | <type>)}
+
+sp {monitor*state*left
+   (state <s> ^name MISS_CAN
+              ^leftBank <lb>
+              ^rightBank <rb>)
+   (<lb> ^missionaries <lm>
+         ^cannibals <lc>
+         ^boat 1)
+   (<rb> ^missionaries <rm>
+         ^cannibals <rc>
+         ^boat 0)
+-->
+   (write (crlf) | M: | <lm> |, C: | <lc> | B ~~~   |
+                 | M: | <rm> |, C: | <rc> |  |)}
+
+sp {monitor*state*right
+   (state <s> ^name MISS_CAN
+              ^leftBank <lb>
+              ^rightBank <rb>)
+   (<lb> ^missionaries <lm>
+         ^cannibals <lc>
+         ^boat 0)
+   (<rb> ^missionaries <rm>
+         ^cannibals <rc>
+         ^boat 1)
+-->
+   (write (crlf) | M: | <lm> |, C: | <lc> |  ~~~ B  |
+                 | M: | <rm> |, C: | <rc> |  |)}

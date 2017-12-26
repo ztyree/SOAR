@@ -1,0 +1,12 @@
+source _firstload.soar
+pushd all
+source all_source.soar
+popd
+pushd elaborations
+source elaborations_source.soar
+popd
+source initialize-MISS_CAN.soar
+source monitor.soar
+source movePerson11.soar
+source movePerson21.soar
+source movePerson22.soar

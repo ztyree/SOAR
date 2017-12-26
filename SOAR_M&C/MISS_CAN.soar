@@ -1,0 +1,3 @@
+pushd MISS_CAN
+source MISS_CAN_source.soar
+popd
