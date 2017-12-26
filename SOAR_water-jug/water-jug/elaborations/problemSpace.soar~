@@ -1,0 +1,7 @@
+sp {water-jug*elaborate*problemSpace
+   (state <s> ^name water-jug)
+-->
+   (<s> ^problemSpace <p>)
+   (<p> ^name water-jug
+        ^default-state-copy yes
+        ^two-level-attributes jug)}

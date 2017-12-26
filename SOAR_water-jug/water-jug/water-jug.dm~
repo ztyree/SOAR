@@ -1,4 +1,4 @@
-26
+40
 SOAR_ID 0
 SOAR_ID 1
 SOAR_ID 2
@@ -19,22 +19,40 @@ ENUMERATION 16 1 empty
 SOAR_ID 17
 ENUMERATION 18 1 pour
 SOAR_ID 19
-INTEGER_RANGE 20 -2147483648 2147483647
-INTEGER_RANGE 21 -2147483648 2147483647
-SOAR_ID 22
-STRING 23
-STRING 24
-STRING 25
-30
-0 desiredJug 19
+STRING 20
+STRING 21
+STRING 22
+SOAR_ID 23
+ENUMERATION 24 1 selection
+SOAR_ID 25
+SOAR_ID 26
+INTEGER_RANGE 27 -2147483648 2147483647
+INTEGER_RANGE 28 -2147483648 2147483647
+SOAR_ID 29
+STRING 30
+SOAR_ID 31
+ENUMERATION 32 2 no yes
+SOAR_ID 33
+ENUMERATION 34 1 Impasse__Operator_Tie
+SOAR_ID 35
+ENUMERATION 36 1 state
+ENUMERATION 37 1 Impasse__Operator_Tie
+ENUMERATION 38 1 monitor
+SOAR_ID 39
+45
+0 desired 25
 0 io 1
 0 jug 9
-0 lastOperator 22
+0 lastOperator 19
 0 name 7
 0 operator 4
 0 operator 13
 0 operator 15
 0 operator 17
+0 operator 23
+0 operator 33
+0 problemSpace 29
+0 success 31
 0 superstate 6
 0 top-state 0
 0 type 5
@@ -51,8 +69,19 @@ STRING 25
 17 empty-jug 9
 17 fill-jug 9
 17 name 18
-19 contents 21
-19 volume 20
-22 empty-jug 24
-22 fill-jug 25
-22 name 23
+19 empty-jug 21
+19 fill-jug 22
+19 name 20
+23 name 24
+25 jug 26
+26 contents 28
+26 volume 27
+29 default-state-copy 32
+29 name 30
+33 name 34
+35 name 37
+35 operator 39
+35 superstate 0
+35 top-state 0
+35 type 36
+39 name 38

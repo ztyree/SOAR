@@ -31,7 +31,7 @@ sp {apply*initialize-water-jug
 sp {water-jug*apply*initialize*create*desired-state
    (state <s> ^operator.name initialize-water-jug)
 -->
-   (<s> ^desiredJug <k>)
+   (<s> ^desired.jug <k>)
    (<k> ^volume 3
         ^contents 1)}
         

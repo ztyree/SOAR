@@ -4,7 +4,7 @@
 sp {water-jug*select*operator*avoid*inverse*fill
    (state <s> ^name water-jug
               ^operator <o> +
-              ^last-operator <lo>)
+              ^lastOperator <lo>)
    (<o> ^name fill ^fill-jug <i>)
    (<lo> ^name empty ^empty-jug <i>)
 -->

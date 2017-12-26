@@ -9,7 +9,7 @@ sp {water-jug*propose*pour
    (<j1> ^contents > 0)
    (<j2> ^empty > 0)
 -->
-   (<s> ^operator <o> + =)
+   (<s> ^operator <o> +)
    (<o> ^name pour
         ^empty-jug <j1>
         ^fill-jug <j2>)}

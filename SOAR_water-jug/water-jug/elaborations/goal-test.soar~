@@ -1,13 +1,9 @@
-# water-jug*detect*goal*achieved
-# If the task is water-jug and there is a jug w/ volum 3 and contents 1,
-# then write that the problem has been solved and halt.
-
-sp {water-jug*detect*goal*acheieved
-   (state <s> ^name water-jug
+sp {water-jug*evaluate*state*success
+   (state <s> ^desired <d>
               ^jug <j>
-              ^desired.jug <dj>)
-   (<j> ^volume 3
-        ^contents 1)
+              ^problemSpace.name water-jug)
+   (<d> ^jug <dj>)
+   (<dj> ^volume <v> ^contents <c>)
+   (<j> ^volume <v> ^contents <c>)
 -->
-   (write (crlf) |The problem has been solved.|)
-   (halt)}
+   (<s> ^success <d>)}

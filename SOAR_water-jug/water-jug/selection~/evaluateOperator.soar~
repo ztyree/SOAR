@@ -1,0 +1,10 @@
+sp {selection*propose*evaluateOperator
+   (state <s> ^name selection
+              ^item <i>)
+  -{(state <s> ^evaluation <e>)
+    (<e> ^operator <i>
+         ^value true)}
+-->
+   (<s> ^operator <o> + =)
+   (<o> ^name evaluateOperator
+        ^operator <i>)}
