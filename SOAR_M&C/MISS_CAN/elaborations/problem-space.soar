@@ -1,0 +1,8 @@
+sp {MISS_CAN*elaborate*problem-space
+   (state <s> ^name MISS_CAN)
+-->
+   (<s> ^problem-space <p>)
+   (<p> ^name missionaries-and-cannibals
+        ^default-state-copy yes
+        ^one-level-attributes  boat oBank
+        ^two-level-attributes rightBank leftBank)}

@@ -1,15 +1,15 @@
 VERSION 4
 \MISS_CAN\MISS_CAN.dm
 0	ROOT MISS_CAN MISS_CAN 1
-1	0	FOPERATOR _firstload _firstload.soar 3
-2	0	FOLDER all all 4
-3	0	FOLDER elaborations elaborations 2
+1	0	FOPERATOR _firstload _firstload.soar 2
+2	0	FOLDER all all 3
+3	0	FOLDER elaborations elaborations 4
 4	3	FOPERATOR _all _all.soar 5
-5	3	FOPERATOR detect detect.soar 17
-6	3	FOPERATOR lastOperator lastOperator.soar 16
-7	3	FOPERATOR top-state top-state.soar 6
-8	0	OPERATOR initialize-MISS_CAN initialize-MISS_CAN.soar 7
-9	0	OPERATOR monitor monitor.soar 14
+5	3	FOPERATOR detect detect.soar 6
+6	3	FOPERATOR problemSpace problemSpace.soar 14
+7	3	FOPERATOR top-state top-state.soar 8
+8	0	OPERATOR initialize-MISS_CAN initialize-MISS_CAN.soar 9
+9	0	OPERATOR monitor monitor.soar 10
 10	0	OPERATOR movePerson11 movePerson11.soar 11
 11	0	OPERATOR movePerson21 movePerson21.soar 12
 12	0	OPERATOR movePerson22 movePerson22.soar 13

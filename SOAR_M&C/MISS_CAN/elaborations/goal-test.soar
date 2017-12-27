@@ -1,0 +1,29 @@
+
+####
+### STATE SUCCESS/GOAL DETECTION
+###
+
+sp {MISS_CAN*detect*state*success
+   (state <s> ^desired <d>
+              ^<bank> <ls>)
+   (<ls> ^missionaries <m>
+         ^cannibals <c>)
+   (<d> ^{ << rightBank leftBank >> <bank> } <dls>)
+   (<dls> ^missionaries <m>
+          ^cannibals <c>)
+   -->
+   (<s> ^success <d>)
+   (write (crlf) |Success!|)
+}
+###
+### STATE FAILURE DETECTION
+###
+
+sp {MISS_CAN*evaluate*state*failure*more*cannibals
+   (state <s> ^desired <d>
+              ^<< rightBank leftBank >> <bank>)
+   (<bank> ^missionaries { <n> > 0 }
+           ^cannibals > <n>)
+   -->
+   (write (crlf) |Failure!|)
+   (<s> ^failure <d>)}

@@ -1,34 +1,28 @@
-sp {propose*initialize-MISS_CAN
+sp {MISS_CAN*propose*initialize
    (state <s> ^superstate nil
              -^name)
 -->
-   (<s> ^operator <o> +)
+   (<s> ^operator <o> + =)
    (<o> ^name initialize-MISS_CAN)
 }
 
-sp {apply*initialize-MISS_CAN
-   (state <s> ^operator <op>)
-   (<op> ^name initialize-MISS_CAN)
--->
-   (<s> ^name MISS_CAN)
-}
-
-sp {apply*initialize-MISS_CAN
+sp {MISS_CAN*apply*initialize
    (state <s> ^operator.name initialize-MISS_CAN)
 -->
    (<s> ^name MISS_CAN
-        ^leftBank <lb>
-        ^rightBank <rb>
-        ^desired <d>)
-   (<lb> ^missionaries 3
-         ^cannibals 3
-         ^boat 1
-         ^otherBank <rb>)
-   (<rb> ^missionaries 0
+        ^leftBank <l>
+        ^rightBank <r>
+        ^desired <d>
+        ^boat leftBank
+        ^oBank rightBank)
+   (<l> ^missionaries 3
+        ^cannibals 3
+        ^other-bank <r>)
+   (<r> ^missionaries 0
         ^cannibals 0
-        ^boat 0
-        ^otherBank <lb>)
-   (<d> ^rightBank <dr>)
-   (<dr> ^missionaries 3
-         ^cannibals 3
-         ^boat 1)}
+        ^other-bank <l>)
+   (<d> ^rightBank <dl>
+        ^boat rightBank)
+   (<dl> ^missionaries 3
+         ^cannibals 3)
+}

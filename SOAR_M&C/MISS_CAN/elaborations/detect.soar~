@@ -1,26 +1,23 @@
 sp {MISS_CAN*detectFinished
-   (state <s> ^name MISS_CAN
-              ^desired <d>
+   (state <s> ^desired <d>
               ^<side> <sd>)
    (<sd> ^missionaries <m>
-        ^cannibals <c>
-        ^boat <b>)
+        ^cannibals <c>)
    (<d> ^{ << rightBank leftBank >> <side> } <dSide>)
    (<dSide> ^missionaries <m>
-            ^cannibals <c>
-            ^boat <b>)
+            ^cannibals <c>)
 -->
-   (write (crlf) |The problem has been solved.|)
-   (halt)}
+   (<s> ^success <d>)
+   (write (crlf) |Success!|)}
 
 sp {MISS_CAN*detectFailure
-   (state <s> ^name MISS_CAN
+   (state <s> ^desired <d>
               ^<< rightBank leftBank >> <b>)
    (<b> ^missionaries { <m> > 0 }
         ^cannibals > <m>)
 -->
-   (<s> ^failure 1)
-   (write (crlf) |FAILURE, UNDOING LAST MOVE|)}
+   (<s> ^failure <d>)
+   (write (crlf) |Failure!|)}
 
 sp {MISS_CAN*select*inverse*failure*types1
    (state <s> ^name MISS_CAN
@@ -67,4 +64,19 @@ sp {MISS_CAN*avoid*inverse*notFailure*types2
    (<o> ^types 2)
 -->
    (<s> ^operator <o> < )}
+
+sp {MISS_CAN*evaluate*state*failure*duplicate
+   (state <s1> ^superstate.superstate <s2>
+               ^desired <d>
+               ^rightBank <rb>
+               ^leftBank <lb>)
+   (<rb> ^missionaries <rbm> ^cannibals <rbc> ^boat <rbb>)
+   (<lb> ^missionaries <lbm> ^cannibals <lbc> ^boat <lbb>)
+   (<s2> ^rightBank <rb2>
+         ^leftBank <lb2>)
+   (<rb2> ^missionaries <rbm> ^cannibals <rbc> ^boat <rbb>)
+   (<lb2> ^missionaries <lbm> ^cannibals <lbc> ^boat <lbb>)
+-->
+   (write (crlf) |Duplicate State Detected.|)
+   (<s2> ^failure <d>)}
    
