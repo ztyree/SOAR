@@ -1,3 +1,4 @@
-source goal-test.soar
-source monitor.soar
-source problem-space.soar
+source _all.soar
+source detect.soar
+source problemSpace.soar
+source top-state.soar

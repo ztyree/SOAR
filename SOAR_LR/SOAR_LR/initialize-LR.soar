@@ -1,0 +1,18 @@
+sp {propose*initialize-LR
+   (state <s> ^superstate nil
+             -^name)
+-->
+   (<s> ^operator <o> +)
+   (<o> ^name initialize-LR)
+}
+
+sp {apply*initialize-LR
+   (state <s> ^operator <op>)
+   (<op> ^name initialize-LR)
+-->
+   (<s> ^name LR
+        ^direction <d1> <d2>
+        ^location start)
+   (<d1> ^name left ^reward -1)
+   (<d2> ^name right ^reward 1)}
+

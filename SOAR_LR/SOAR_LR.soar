@@ -1,0 +1,3 @@
+pushd SOAR_LR
+source SOAR_LR_source.soar
+popd
